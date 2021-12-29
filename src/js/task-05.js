@@ -1,15 +1,14 @@
-{
-  /* <input type="text" id="name-input" placeholder="Please enter your name" />
-<h1>Hello, <span id="name-output">Anonymous</span>!</h1> */
-}
-
 const nameInputRef = document.querySelector("#name-input");
 
 const nameOutputRef = document.querySelector("#name-output");
-nameOutputRef.textContent = "Anonymous";
-nameInputRef.addEventListener("input", (event) => {
-  if (event.currentTarget.value == "") {
+
+nameInputRef.addEventListener("input", onNameInputChange);
+nameInputRef.addEventListener("blur", () => {
+  if (nameOutputRef.textContent === "") {
     nameOutputRef.textContent = "Anonymous";
   }
-  nameOutputRef.textContent = event.currentTarget.value;
 });
+
+function onNameInputChange(event) {
+  nameOutputRef.textContent = event.currentTarget.value;
+}
