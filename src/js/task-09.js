@@ -1,9 +1,10 @@
 const changeColorBtn = document.querySelector('.change-color');
 const currentColor = document.querySelector('.color');
-
+let bodyColor = document.body.style.backgroundColor;
 function changeBgColor() {
-  document.body.style.backgroundColor = getRandomHexColor();
-  currentColor.textContent = getRandomHexColor();
+  const color = getRandomHexColor();
+  bodyColor = color;
+  currentColor.textContent = color;
 }
 
 function getRandomHexColor() {
